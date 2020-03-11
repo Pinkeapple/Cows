@@ -1,0 +1,48 @@
+const readlineSync = require('readline-sync');
+let l=0;
+first=0;
+do{
+const firstnomber = readlineSync.question('first? ');
+console.log('Первое число', firstnomber);
+l=firstnomber.length;
+console.log(firstnomber.length);
+first=firstnomber;
+}while(l>7 || l<2);
+
+
+
+function fun(first){
+     do{
+secondnomber = 0;
+console.log('длина загаданного числа:', l )
+console.log('введите число из', l, 'цифр');
+do{
+secondnomber = readlineSync.question('second? ');
+}
+while(((first.length)!=(secondnomber.length)));
+
+console.log('второе', secondnomber);
+let sov=[];
+let nesov=[];
+let k=0;
+let n=0;
+for (let i = 0; i < first.length; i++) {
+if( first[i]== secondnomber[i]){
+k=k+1;
+sov[i]=secondnomber[i];
+}
+else {
+if(secondnomber.includes(first[i])) {
+n=n+1
+  nesov[i]= first[i];
+}
+}
+}
+console.log('полностью совпали', k,'(',sov,')');
+console.log('количество цифр не на своем месте',n,'(',nesov,')');
+}
+while(first!= secondnomber);
+           console.log('число угадано',secondnomber);
+}
+
+fun(first)
