@@ -1,6 +1,7 @@
 const readlineSync = require('readline-sync');
 let first=0;
 let second=0;
+
 const monster = {
         maxHealth: 10,
         name: "Лютый",
@@ -113,6 +114,36 @@ return second;
 }
 
 function zdorov(first, second){
+let one=monster;
+if (first=1){
+one.maxHealth=monster.maxHealth-3;
+console.log('здоровье монстра',monster.maxHealth);
+}
+else{
+if (first=2){
+one.maxHealth=monster.maxHealth-4;
+console.log('здоровье монстра',monster.maxHealth);
+}
+if (first=3){
+one.maxHealth=monster.maxHealth-2;
+console.log('здоровье монстра',monster.maxHealth);
+}
+}
+let two=igrok;
+if (second=1){
+two.maxHealth=igrok.maxHealth-2;
+console.log('здоровье игрока',igrok.maxHealth);
+}
+else{
+if (second=2){
+two.maxHealth=igrok.maxHealth-4;
+console.log('здоровье игрока',igrok.maxHealth);
+}
+if (second=3){
+two.maxHealth=igrok.maxHealth-5;
+console.log('здоровье игрока',igrok.maxHealth);
+}
+}
 }
 
 
@@ -124,7 +155,15 @@ console.log(first);
 console.log('ход',igrok.name,'введите 1-Удар боевым кадилом,2-Вертушка левой пяткой или 3-Каноничный фаербол');
 secondpl=hod2();
 zdorov(firstpl, secondpl);
-}while(first>0 || second>0);
+}while(monster.maxHealth>0 && igrok.maxHealth>0);
+if(monster.maxHealth<0){
+console.log('игрок победил')
+}
+else{
+if(igrok.maxHealth<0){
+console.log('монстр победил')
+}
+}
 
 }
 igra();
